@@ -38,6 +38,16 @@ export default function Footer() {
           </a>
         </div>
       </div>
+      <div className="mx-auto mt-6 flex max-w-6xl justify-center border-t border-white/5 px-6 pt-5">
+        <a
+          href="https://beian.miit.gov.cn/"
+          target="_blank"
+          rel="noreferrer"
+          className="text-xs text-slate-600 transition-colors hover:text-slate-400"
+        >
+          沪ICP备15048960号
+        </a>
+      </div>
     </footer>
   )
 }
