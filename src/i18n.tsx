@@ -15,6 +15,8 @@ const STORAGE_KEY = 'next-wiki-portal-lang'
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
     try {
+      const q = new URLSearchParams(window.location.search).get('lang')
+      if (q === 'zh' || q === 'en') return q
       const saved = localStorage.getItem(STORAGE_KEY)
       return saved === 'zh' ? 'zh' : 'en'
     } catch {
@@ -152,6 +154,9 @@ const en: Dict = {
 
   // Footer
   'footer.tag': 'A personal, AI-native knowledge vault',
+  'footer.by': 'Built by',
+
+  'nav.home': 'hugogu.cn',
 }
 
 const zh: Dict = {
@@ -249,6 +254,9 @@ const zh: Dict = {
   'cta.button': '前往 GitHub',
 
   'footer.tag': '个人的 AI 原生知识资产库',
+  'footer.by': '作者',
+
+  'nav.home': 'hugogu.cn',
 }
 
 export const dict: Record<Lang, Dict> = { en, zh }

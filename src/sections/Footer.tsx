@@ -15,6 +15,17 @@ export default function Footer() {
           <span className="text-xs text-slate-500">· {t('footer.tag')}</span>
         </div>
         <div className="flex items-center gap-6 text-xs text-slate-500">
+          <span>
+            {t('footer.by')}{' '}
+            <a
+              href="https://www.hugogu.cn/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-400 underline-offset-2 transition-colors hover:text-cyan-300 hover:underline"
+            >
+              Hugo Gu
+            </a>
+          </span>
           <span>Apache-2.0 License</span>
           <a
             href="https://github.com/hugogu/next-wiki"

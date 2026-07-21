@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Github, Languages, Terminal } from 'lucide-react'
+import { Github, Languages, Terminal, CircleUserRound } from 'lucide-react'
 import { useLang } from '@/i18n'
 
 export default function Navbar() {
@@ -51,6 +51,18 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {/* 个人主页 */}
+          <a
+            href="https://www.hugogu.cn/"
+            target="_blank"
+            rel="noreferrer"
+            title="Hugo Gu"
+            className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-xs text-slate-300 transition-all hover:border-cyan-400/40 hover:text-white"
+          >
+            <CircleUserRound className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">{t('nav.home')}</span>
+          </a>
+
           {/* 语言切换 */}
           <button
             onClick={() => setLang(lang === 'en' ? 'zh' : 'en')}
