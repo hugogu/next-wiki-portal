@@ -1,6 +1,9 @@
 import { Github, Terminal } from 'lucide-react'
+import { useLang } from '@/i18n'
 
 export default function Footer() {
+  const { t } = useLang()
+
   return (
     <footer className="border-t border-white/10 bg-slate-950 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 px-6 sm:flex-row">
@@ -9,7 +12,7 @@ export default function Footer() {
             <Terminal className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
           </span>
           <span className="font-mono text-sm font-semibold text-white">next-wiki</span>
-          <span className="text-xs text-slate-500">· 个人的 AI 原生知识资产库</span>
+          <span className="text-xs text-slate-500">· {t('footer.tag')}</span>
         </div>
         <div className="flex items-center gap-6 text-xs text-slate-500">
           <span>Apache-2.0 License</span>

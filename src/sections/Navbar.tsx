@@ -1,15 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Github, Terminal } from 'lucide-react'
-
-const links = [
-  { href: '#features', label: '特性' },
-  { href: '#ai-native', label: 'AI 原生' },
-  { href: '#stack', label: '技术栈' },
-  { href: '#quickstart', label: '快速开始' },
-]
+import { Github, Languages, Terminal } from 'lucide-react'
+import { useLang } from '@/i18n'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const { lang, setLang, t } = useLang()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -17,6 +12,13 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const links = [
+    { href: '#features', label: t('nav.features') },
+    { href: '#ai-native', label: t('nav.ai') },
+    { href: '#stack', label: t('nav.stack') },
+    { href: '#quickstart', label: t('nav.quickstart') },
+  ]
 
   return (
     <header
@@ -48,15 +50,29 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="https://github.com/hugogu/next-wiki"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-slate-200 transition-all hover:border-cyan-400/40 hover:bg-white/10 hover:text-white"
-        >
-          <Github className="h-4 w-4" />
-          <span className="hidden sm:inline">GitHub</span>
-        </a>
+        <div className="flex items-center gap-3">
+          {/* 语言切换 */}
+          <button
+            onClick={() => setLang(lang === 'en' ? 'zh' : 'en')}
+            aria-label="Switch language"
+            className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-xs text-slate-300 transition-all hover:border-cyan-400/40 hover:text-white"
+          >
+            <Languages className="h-3.5 w-3.5" />
+            <span className={lang === 'en' ? 'text-cyan-300' : ''}>EN</span>
+            <span className="text-slate-600">/</span>
+            <span className={lang === 'zh' ? 'text-cyan-300' : ''}>中</span>
+          </button>
+
+          <a
+            href="https://github.com/hugogu/next-wiki"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-slate-200 transition-all hover:border-cyan-400/40 hover:bg-white/10 hover:text-white"
+          >
+            <Github className="h-4 w-4" />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+        </div>
       </div>
     </header>
   )

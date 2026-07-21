@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Github, Sparkles } from 'lucide-react'
+import { useLang } from '@/i18n'
 
 const badges = ['Apache-2.0', 'Next.js 16', 'React 19', 'TypeScript 5', 'Node 20+']
 
@@ -13,6 +14,8 @@ const fadeUp = {
 }
 
 export default function Hero() {
+  const { t } = useLang()
+
   return (
     <section id="top" className="relative overflow-hidden bg-slate-950 pb-24 pt-36 md:pb-32 md:pt-44">
       {/* 背景层：网格 + 光晕 */}
@@ -31,7 +34,7 @@ export default function Hero() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-1.5 font-mono text-xs text-cyan-300"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            开源 · 自托管 · AI-Native
+            {t('hero.badge')}
           </motion.p>
 
           <motion.h1
@@ -41,12 +44,12 @@ export default function Hero() {
             custom={1}
             className="text-4xl font-bold leading-[1.15] tracking-tight text-white md:text-6xl"
           >
-            个人的{' '}
+            {t('hero.title.a')}{' '}
             <span className="text-glow-cyan bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 bg-clip-text text-transparent">
-              AI 原生
+              {t('hero.title.b')}
             </span>
             <br />
-            知识资产库
+            {t('hero.title.c')}
           </motion.h1>
 
           <motion.p
@@ -56,8 +59,9 @@ export default function Hero() {
             custom={2}
             className="mt-6 max-w-xl text-base leading-relaxed text-slate-400 md:text-lg"
           >
-            用 AI 书写与组织知识 —— 并让同一个知识库，成为任何 AI 助手与你对话时的记忆底座。
-            一条 <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-sm text-cyan-300">docker compose up</code> 即可自托管运行，永不锁定于单一 AI 厂商。
+            {t('hero.sub')}{' '}
+            <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-sm text-cyan-300">docker compose up</code>{' '}
+            {t('hero.sub.tail')}
           </motion.p>
 
           <motion.div
@@ -74,14 +78,14 @@ export default function Hero() {
               className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition-all hover:shadow-xl hover:shadow-cyan-500/40"
             >
               <Github className="h-4 w-4" />
-              GitHub 仓库
+              {t('hero.cta.repo')}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="#quickstart"
               className="rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-slate-300 transition-all hover:border-cyan-400/40 hover:text-white"
             >
-              快速开始
+              {t('hero.cta.start')}
             </a>
           </motion.div>
 
@@ -122,14 +126,14 @@ export default function Hero() {
               <p><span className="text-cyan-400">$</span> <span className="text-slate-200">git clone https://github.com/hugogu/next-wiki.git</span></p>
               <p><span className="text-cyan-400">$</span> <span className="text-slate-200">cd next-wiki && cp .env.example .env</span></p>
               <p><span className="text-cyan-400">$</span> <span className="text-slate-200">docker compose up -d --build</span></p>
-              <p className="pt-1 text-slate-500"># 首次运行自动完成初始化</p>
+              <p className="pt-1 text-slate-500">{t('hero.term.seeded')}</p>
               <p className="text-emerald-400">✓ ready — http://localhost:3000</p>
               <div className="mt-4 flex items-center gap-2 rounded-lg border border-cyan-400/20 bg-cyan-400/5 px-3 py-2">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
                 </span>
-                <span className="text-xs text-cyan-300">MCP server online — Claude / Cursor 已可读写知识库</span>
+                <span className="text-xs text-cyan-300">{t('hero.term.mcp')}</span>
               </div>
             </div>
           </div>
