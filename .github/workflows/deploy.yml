@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install --no-audit --no-fund
+      - run: npm install --no-audit --no-fund --include=dev
       - run: npm run build
 
       - uses: actions/configure-pages@v5
