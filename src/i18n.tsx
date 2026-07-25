@@ -65,9 +65,9 @@ const en: Dict = {
 
   // Hero
   'hero.badge': 'Open Source · Self-hosted · AI-Native',
-  'hero.title.a': 'Turn conversations',
-  'hero.title.b': 'into durable',
-  'hero.title.c': 'knowledge',
+  'hero.title.a': 'Let AI dialogue be',
+  'hero.title.b': 'the bedrock',
+  'hero.title.c': 'of your knowledge system',
   'hero.sub': 'A self-hosted, AI-native wiki: capture what you learn and keep the evidence, organize it through dialogue with AI, and publish a readable wiki when it is ready. Self-hosted with a single command, never locked to a single AI vendor.',
   'hero.sub.tail': '',
   'hero.cta.repo': 'GitHub Repo',
@@ -181,9 +181,9 @@ const zh: Dict = {
   'nav.quickstart': '快速开始',
 
   'hero.badge': '开源 · 自托管 · AI-Native',
-  'hero.title.a': '把对话与素材',
-  'hero.title.b': '沉淀为耐久',
-  'hero.title.c': '知识',
+  'hero.title.a': '让与 AI 的对话，成为',
+  'hero.title.b': '个人知识体系',
+  'hero.title.c': '成长的基石',
   'hero.sub': '一个自托管的 AI 原生 Wiki：捕获你学到的东西并保留证据，与 AI 对话完成整理与建设，成熟时发布为可读的 Wiki。一条命令即可自托管，永不锁定于单一 AI 厂商。',
   'hero.sub.tail': '',
   'hero.cta.repo': 'GitHub 仓库',
