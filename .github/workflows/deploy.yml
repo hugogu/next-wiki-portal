@@ -20,9 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Setup Node (use runner tool cache)
+        run: echo "$RUNNER_TOOL_CACHE/Node/20.20.2/x64/bin" >> "$GITHUB_PATH"
 
       - run: npm ci --no-audit --no-fund
       - run: npm run build
