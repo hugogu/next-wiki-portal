@@ -47,7 +47,7 @@ export default function Hero() {
             {t('hero.title.a')}{' '}
             <span className="text-glow-cyan bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 bg-clip-text text-transparent">
               {t('hero.title.b')}
-            </span>
+            </span>{' '}
             <br />
             {t('hero.title.c')}
           </motion.h1>
@@ -59,8 +59,7 @@ export default function Hero() {
             custom={2}
             className="mt-6 max-w-xl text-base leading-relaxed text-slate-400 md:text-lg"
           >
-            {t('hero.sub')}{' '}
-            <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-sm text-cyan-300">docker compose up</code>{' '}
+            {t('hero.sub')}
             {t('hero.sub.tail')}
           </motion.p>
 

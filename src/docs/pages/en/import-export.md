@@ -15,6 +15,10 @@ Uploads are streamed to the persistent content volume, **validated before any mu
 
 Artifacts default to 72-hour retention; tune it via the `TRANSFER_*` [environment variables](/docs/environment).
 
+## Git synchronization
+
+Published content can be synchronized **one-way** to a Git repository, with scheduled reconciliation and automatic sync on publish. Git is an export backend for the published snapshot — it is never used as a read source.
+
 ## Wiki.js migration
 
 Moving from Wiki.js is a first-class flow:
@@ -27,7 +31,7 @@ Private-network destinations are blocked by default; enable private-network trus
 
 ## Recovery
 
-- Runs and item outcomes persist in PostgreSQL across browser refreshes and artifact expiry.
+- Pause, resume, cancel, retry, and item-level transfer status are first-class — runs and item outcomes persist in PostgreSQL across browser refreshes and artifact expiry.
 - Active runs can be cancelled cooperatively; failed/cancelled runs can spawn retries without losing historical outcomes.
 - Only one mutating import holds the database mutation slot at a time.
 - The run detail page shows sanitized failures and archive downloads; API activity is recorded by the API audit middleware.

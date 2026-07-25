@@ -1,4 +1,4 @@
-`@next-wiki/mcp-server` exposes the wiki's page management surface as MCP tools and resources for Claude Code, Cursor, OpenCode, OpenClaw, and other AI-agent clients — the same permission-scoped store that backs the web UI.
+`@next-wiki/mcp-server` connects Claude Code, Cursor, OpenCode, OpenClaw, and other MCP-compatible clients to the same public API — retrieval, page authoring, drafts and publishing, revision history and diffs, links and graph navigation, tags, raw evidence, batch operations, assets, and wiki health checks. See [Agent Runtime & Tools](/docs/agent-runtime) for the built-in runtime used by Wiki AI itself.
 
 ## Installation
 

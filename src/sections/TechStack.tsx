@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 import { useLang } from '@/i18n'
 
 const groupItems: string[][] = [
-  ['Next.js 16 · App Router', 'React 19', 'TypeScript 5', 'Tailwind CSS', 'next-intl'],
-  ['PostgreSQL', 'Drizzle ORM', 'pg-boss', 'S3-compatible storage (optional)'],
-  ['MCP Server', 'remark / rehype pipeline', 'KaTeX', 'Mermaid', 'OpenAPI public API'],
+  ['Next.js 16 · App Router', 'React 19', 'TypeScript 5', 'Tailwind CSS', 'next-intl (en/zh)'],
+  ['PostgreSQL 16 + pgvector', 'Drizzle ORM', 'pg-boss jobs', 'Local / S3 content backends', 'Git sync (one-way)'],
+  ['Built-in MCP tool runtime', '@next-wiki/mcp-server', 'remark / rehype + KaTeX + Mermaid', 'OpenRouter · Anthropic · Kimi · Z.ai', 'OpenAPI public API'],
   ['Turborepo Monorepo', 'pnpm', 'Docker Compose', 'Vitest + Playwright', 'Caddy + Cloudflare'],
 ]
 

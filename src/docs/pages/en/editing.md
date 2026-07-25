@@ -1,28 +1,27 @@
-next-wiki pages are Markdown documents with YAML frontmatter, authored in a CodeMirror-based editor or drafted through the AI side pane.
+next-wiki pages are Markdown documents with YAML frontmatter, authored in a split source/preview editor or drafted through Wiki AI chat.
 
 ## The editor
 
-- **Markdown-first**, with a pluggable remark/rehype rendering pipeline.
-- **GFM** tables, task lists, and strikethrough.
-- **Math** via KaTeX — inline `$...$` and display blocks.
-- **Diagrams** via Mermaid, rendered inline with a zoom popup for large graphs.
+- **Split source/preview** editing with a familiar page tree.
+- **GitHub-Flavored Markdown**, syntax-highlighted code, frontmatter, tags, and metadata.
+- **Math** via KaTeX; **diagrams** via Mermaid with a zoom popup for large graphs.
 - **Images** upload directly and are referenced from the content store; exports rewrite them into portable form.
-- **Frontmatter** carries page metadata. AI-generated concepts in LLM Wiki mode keep their OKF frontmatter through publish and export.
+- **Links everywhere** — backlinks, outbound links, page neighborhoods, tags, and related content are navigable from the reader.
 
 ## Drafts and publishing
 
 Edits are saved as draft revisions first. Publishing a draft creates a new published revision — the public site only ever serves published content, delivered statically/ISR so readers never wait on the database.
 
-## The AI side pane
+## Wiki AI chat
 
-A persistent chat pane sits next to the editor. It is the default way to:
+A persistent chat surface sits next to your content, grounded in the wiki through hybrid keyword and semantic retrieval with visible sources and retrievable citations:
 
-- draft new pages from an outline or a pile of notes,
-- restructure the page tree,
-- refine tone, translate, or summarize content through dialogue.
+- draft pages from an outline or a pile of notes,
+- restructure the page tree, manage tags, propose batch operations,
+- improve text, generate images, and run queued multilingual translation workflows with immutable provenance.
 
-The pane is an accelerator, not a requirement: the manual editor stays fully capable, and the wiki never depends on a live model connection to stay readable, searchable, and editable.
+Chat sessions are retained, shareable through their URL, and restorable with their conversation context. When a selected model cannot use tools, Wiki AI degrades to ordinary question answering instead of silently pretending it performed a mutation. Tool-enabled turns go through the [Agent Runtime](/docs/agent-runtime) with live tool-call status.
 
-## Link graph
+## Export
 
-Pages link to each other by path. next-wiki tracks the graph so you can ask what points where — backlinks, outbound links, dangling links, and multi-hop neighborhoods are all queryable (also exposed as MCP tools).
+Export a page's Markdown directly, or use the versioned ZIP [transfer flow](/docs/import-export) for published pages and referenced local images.

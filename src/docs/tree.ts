@@ -35,6 +35,7 @@ export const docsTree: DocGroup[] = [
     title: { en: 'Using next-wiki', zh: '使用指南' },
     pages: [
       { slug: 'editing', title: { en: 'Writing & Markdown', zh: '写作与 Markdown' } },
+      { slug: 'ai-configuration', title: { en: 'Configuring AI', zh: '配置 AI' } },
       { slug: 'versioning', title: { en: 'Revisions & History', zh: '版本与历史' } },
       { slug: 'import-export', title: { en: 'Import & Export', zh: '导入与导出' } },
       { slug: 'public-api', title: { en: 'Public REST API', zh: '公共 REST API' } },
@@ -45,6 +46,7 @@ export const docsTree: DocGroup[] = [
     title: { en: 'AI Integration', zh: 'AI 集成' },
     pages: [
       { slug: 'writing-modes', title: { en: 'Writing Modes', zh: '写作模式' } },
+      { slug: 'agent-runtime', title: { en: 'Agent Runtime & Tools', zh: 'Agent Runtime 与工具' } },
       { slug: 'mcp-server', title: { en: 'MCP Server', zh: 'MCP Server' } },
       { slug: 'feishu', title: { en: 'Feishu Integration', zh: '飞书集成' } },
     ],

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Bot, Globe2, LibraryBig, PenLine, ShieldCheck, ArrowLeftRight } from 'lucide-react'
+import { ArrowDown, Bot, Globe2, LibraryBig, PenLine, ShieldCheck, ArrowLeftRight } from 'lucide-react'
 import { useLang } from '@/i18n'
 
 export default function AiNative() {
@@ -23,6 +23,39 @@ export default function AiNative() {
           </h2>
           <p className="mt-4 leading-relaxed text-slate-500">{t('ai.sub')}</p>
         </div>
+
+        {/* 知识闭环 */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="mt-14 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-10"
+        >
+          <p className="font-mono text-xs uppercase tracking-wider text-cyan-600">{t('ai.loop.title')}</p>
+          <div className="mx-auto mt-6 max-w-xl space-y-0">
+            {[1, 2, 3, 4, 5].map((n, i) => (
+              <div key={n}>
+                <div
+                  className={`rounded-xl border px-5 py-3.5 text-center font-mono text-[13px] md:text-sm ${
+                    n === 2
+                      ? 'border-cyan-500/40 bg-cyan-50/70 text-cyan-800'
+                      : n === 5
+                        ? 'border-transparent bg-slate-950 text-white shadow-lg shadow-slate-950/10'
+                        : 'border-slate-200 bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  {t(`ai.loop.${n}`)}
+                </div>
+                {i < 4 && (
+                  <div className="flex justify-center py-1 text-slate-300">
+                    <ArrowDown className="h-4 w-4" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* 架构示意 */}
         <motion.div

@@ -1,4 +1,4 @@
-`@next-wiki/mcp-server` 把 wiki 的页面管理能力以 MCP 工具与资源的形式暴露给 Claude Code、Cursor、OpenCode、OpenClaw 等 AI agent 客户端 —— 与 Web UI 共用同一个权限受控的存储。
+`@next-wiki/mcp-server` 把 Claude Code、Cursor、OpenCode、OpenClaw 等 MCP 兼容客户端连接到同一套公共 API —— 检索、页面创作、草稿与发布、修订历史与 diff、链接与图谱导航、标签、raw 证据、批量操作、资产与 wiki 健康检查。Wiki AI 自身使用的内置运行时见 [Agent Runtime 与工具](/docs/agent-runtime)。
 
 ## 安装
 

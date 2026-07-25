@@ -8,10 +8,11 @@ Humans and AI work together in the default wiki space. This is the simplest opti
 
 Adds two Admin-only spaces alongside the public wiki:
 
-- **`raw`** — append-only source material: notes, excerpts, evidence. Entries accept verbatim bodies (plus optional original bytes) and can only be appended to, never rewritten.
-- **`generated`** — AI-produced OKF concepts distilled from raw material.
+- **`raw`** — append-only source material: notes, excerpts, evidence. Entries preserve extracted text together with **original bytes** such as PDF, HTML, JSON, images, and logs, and can only be appended to, never rewritten.
+- **`generated`** — AI-produced OKF concepts distilled from raw material, carrying provenance back to their sources.
+- **`default`** — remains the curated public wiki.
 
-The public default wiki stays separate. Administrators can publish a generated concept to a public wiki path as a **soft link**, and choose public or Admin-only visibility independently for raw and generated content.
+Administrators can publish a generated concept into the public tree through a **soft link** — without copying the knowledge away from its source — and choose public or Admin-only visibility independently for the raw and generated spaces.
 
 ## Switching modes
 

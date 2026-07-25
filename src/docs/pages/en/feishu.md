@@ -10,12 +10,12 @@ An optional [Feishu](https://open.feishu.cn/) integration lets users bind their 
 
 Configure it entirely in the admin UI at `/admin/feishu`:
 
-1. Generate and scan a Feishu QR code to associate an existing app or create a new one.
-2. The App Secret and short-lived device code are stored **encrypted in PostgreSQL** and never returned to the browser or logged.
+1. Scan the native Feishu QR flow at `/admin/feishu` to associate an existing app or create a new one — no manually copied App Secret.
+2. Credentials and short-lived device codes are stored **encrypted in PostgreSQL** and never returned to the browser or logged.
 3. The bot receives events through an **outbound WebSocket long connection** — no callback URL and no public ingress configuration required.
 
 ## What users get
 
 - Account binding between Feishu and the wiki
-- Grounded Q&A against the knowledge base, from inside Feishu
+- Grounded Q&A and **tool-enabled turns** — attributed to the bound user and passing the same permission checks as the web UI
 - Event notifications (page updates, mentions) delivered to Feishu
