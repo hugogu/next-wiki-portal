@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Github, Languages, Terminal, CircleUserRound } from 'lucide-react'
+import { Link } from 'react-router'
 import { useLang } from '@/i18n'
 
 export default function Navbar() {
@@ -48,6 +49,12 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/docs"
+            className="text-sm text-slate-400 transition-colors hover:text-cyan-300"
+          >
+            {t('nav.docs')}
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">

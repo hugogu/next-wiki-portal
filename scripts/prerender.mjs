@@ -14,6 +14,13 @@ const DIST = new URL('../dist', import.meta.url).pathname
 const PORT = 49371
 const CHROME = process.env.CHROME_BIN || '/usr/bin/chromium'
 
+// Discover prerendered-able routes from the generated sitemap
+// (public/sitemap.xml is the single source of truth for public URLs).
+const sitemap = await readFile(new URL('../public/sitemap.xml', import.meta.url), 'utf8')
+const ROUTES = [...sitemap.matchAll(/<loc>https:\/\/next-wiki\.hugogu\.cn([^<]*)<\/loc>/g)].map(
+  (m) => m[1] || '/',
+)
+
 const MIME = {
   '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css',
   '.png': 'image/png', '.svg': 'image/svg+xml', '.xml': 'application/xml',
@@ -25,8 +32,9 @@ const server = createServer(async (req, res) => {
   try {
     let p = decodeURIComponent(new URL(req.url, 'http://x').pathname)
     if (p === '/') p = '/index.html'
-    const file = join(DIST, p)
-    if (!existsSync(file)) { res.writeHead(404); res.end(); return }
+    let file = join(DIST, p)
+    // SPA fallback: unknown paths serve the app shell, like Pages/Netlify would
+    if (!existsSync(file)) file = join(DIST, 'index.html')
     res.writeHead(200, { 'content-type': MIME[extname(file)] || 'application/octet-stream' })
     res.end(await readFile(file))
   } catch {
@@ -36,30 +44,33 @@ const server = createServer(async (req, res) => {
 
 await new Promise((r) => server.listen(PORT, '127.0.0.1', r))
 
+const { mkdir } = await import('node:fs/promises')
+
 const browser = await chromium.launch({
   executablePath: CHROME,
   args: ['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage'],
 })
 try {
   const page = await browser.newPage()
-  await page.goto(`http://127.0.0.1:${PORT}/`, { waitUntil: 'networkidle' })
-  await page.waitForSelector('#root > div', { timeout: 15000 })
-  await page.waitForTimeout(2500) // let hero entrance animations finish
+  for (const route of ROUTES) {
+    await page.goto(`http://127.0.0.1:${PORT}${route}`, { waitUntil: 'load', timeout: 30000 })
+    await page.waitForSelector('#root > div', { timeout: 15000 })
+    if (route !== '/') await page.waitForSelector('article', { timeout: 15000 }).catch(() => {})
+    await page.waitForTimeout(route === '/' ? 2500 : 800)
 
-  let html = await page.content()
+    let html = await page.content()
 
-  // Neutralize any residual hidden/offset animation states so the static
-  // copy is fully visible to no-JS readers. React re-mounts client-side.
-  html = html
-    .replace(/opacity:\s*0(\.\d+)?(?=[;"])/g, 'opacity:1')
-    .replace(/transform:\s*(translateY|translateX|translate3d)\([^)]*\)(?=[;"])/g, 'transform:none')
+    // Neutralize residual hidden/offset animation states so the static copy
+    // is fully visible to no-JS readers. React re-mounts client-side.
+    html = html
+      .replace(/opacity:\s*0(\.\d+)?(?=[;"])/g, 'opacity:1')
+      .replace(/transform:\s*(translateY|translateX|translate3d)\([^)]*\)(?=[;"])/g, 'transform:none')
 
-  if (!html.includes('knowledge vault')) {
-    console.error('[prerender] rendered HTML looks empty, keeping original index.html')
-    process.exit(0)
+    const outFile = route === '/' ? join(DIST, 'index.html') : join(DIST, route, 'index.html')
+    await mkdir(join(DIST, route === '/' ? '' : route), { recursive: true })
+    await writeFile(outFile, html)
+    console.log('[prerender]', route, '->', html.length, 'chars')
   }
-  await writeFile(join(DIST, 'index.html'), html)
-  console.log('[prerender] dist/index.html now contains', html.length, 'chars of rendered HTML')
 } finally {
   await browser.close()
   server.close()

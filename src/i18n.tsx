@@ -35,7 +35,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en'
-    document.title = dict[lang]['meta.title']
+    // Docs pages manage their own per-page titles.
+    if (!window.location.pathname.startsWith('/docs')) {
+      document.title = dict[lang]['meta.title']
+    }
   }, [lang])
 
   const t = (key: string) => dict[lang][key] ?? dict.en[key] ?? key
@@ -157,6 +160,10 @@ const en: Dict = {
   'footer.by': 'Built by',
 
   'nav.home': 'hugogu.cn',
+  'nav.docs': 'Docs',
+  'docs.home': 'Home',
+  'docs.prev': 'Previous',
+  'docs.next': 'Next',
 }
 
 const zh: Dict = {
@@ -253,6 +260,10 @@ const zh: Dict = {
   'cta.sub': 'Apache-2.0 开源协议，欢迎 Star、提 Issue 或贡献代码。',
   'cta.button': '前往 GitHub',
 
+  'nav.docs': '文档',
+  'docs.home': '首页',
+  'docs.prev': '上一页',
+  'docs.next': '下一页',
   'footer.tag': '个人的 AI 原生知识资产库',
   'footer.by': '作者',
 
