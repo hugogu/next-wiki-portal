@@ -6,41 +6,33 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write   # push built site to gh-pages branch
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: [self-hosted, Linux, X64, portal]
-    env:
-      CHROME_BIN: /home/hugo/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
       - run: npm ci --no-audit --no-fund
-      - run: npm run build
+      - run: npm run build   # vite build + prerender into dist/
 
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      # Publish dist/ to the gh-pages branch; Pages serves from that branch.
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest  # deploy must reach GitHub Pages backend
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
-        with:
-          timeout: 600000        # 10 min: Pages backend can queue large sites
-          error_count: 10        # tolerate transient polling errors
-          reporting_interval: 15000
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          cname: next-wiki.hugogu.cn
+          user_name: Hugo Gu
+          user_email: hugogu@outlook.com
+          commit_message: "deploy: ${{ github.sha }}"
