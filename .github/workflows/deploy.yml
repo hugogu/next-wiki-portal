@@ -40,3 +40,7 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          timeout: 600000        # 10 min: Pages backend can queue large sites
+          error_count: 10        # tolerate transient polling errors
+          reporting_interval: 15000
