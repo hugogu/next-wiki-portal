@@ -15,6 +15,7 @@ export default function Navbar() {
   }, [])
 
   const links = [
+    { href: '#live-demo', label: t('nav.demo') },
     { href: '#features', label: t('nav.features') },
     { href: '#ai-native', label: t('nav.ai') },
     { href: '#stack', label: t('nav.stack') },
