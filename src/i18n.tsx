@@ -141,6 +141,7 @@ const en: Dict = {
   'demo.open': 'Open in new tab',
   'demo.readonly': 'Read-only demo',
   'demo.loading': 'Loading live demo…',
+  'demo.timeout': 'Taking longer than expected to load.',
 
   // Tech stack
   'stack.kicker': '// Tech stack',
@@ -262,6 +263,7 @@ const zh: Dict = {
   'demo.open': '在新标签页打开',
   'demo.readonly': '只读演示',
   'demo.loading': '正在加载在线演示…',
+  'demo.timeout': '加载时间比预期长。',
 
   'stack.kicker': '// 技术栈',
   'stack.title': '现代、克制、全部开源',

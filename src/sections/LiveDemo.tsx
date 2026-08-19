@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, ShieldCheck } from 'lucide-react'
 import { useLang } from '@/i18n'
@@ -9,9 +9,20 @@ import { useLang } from '@/i18n'
 // write action is rejected server-side regardless of what a visitor clicks.
 const DEMO_URL = 'https://demo.next-wiki.hugogu.cn'
 
+// If the iframe hasn't fired onLoad by then, stop showing an indefinite
+// spinner and point visitors at the "open in new tab" fallback instead.
+const LOAD_TIMEOUT_MS = 8000
+
 export default function LiveDemo() {
   const { t } = useLang()
   const [loaded, setLoaded] = useState(false)
+  const [timedOut, setTimedOut] = useState(false)
+
+  useEffect(() => {
+    if (loaded) return
+    const timer = setTimeout(() => setTimedOut(true), LOAD_TIMEOUT_MS)
+    return () => clearTimeout(timer)
+  }, [loaded])
 
   return (
     <section id="live-demo" className="relative overflow-hidden bg-slate-950 py-24 md:py-32">
@@ -33,7 +44,7 @@ export default function LiveDemo() {
           <a
             href={DEMO_URL}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-slate-300 transition-all hover:border-cyan-400/40 hover:text-white"
           >
             {t('demo.open')}
@@ -58,9 +69,23 @@ export default function LiveDemo() {
               </span>
             </div>
             <div className="relative aspect-[16/10] w-full bg-slate-900 md:aspect-[16/8]">
-              {!loaded && (
-                <div className="absolute inset-0 flex items-center justify-center font-mono text-xs text-slate-600">
+              {!loaded && !timedOut && (
+                <div className="absolute inset-0 z-20 flex items-center justify-center bg-slate-900 font-mono text-xs text-slate-600">
                   {t('demo.loading')}
+                </div>
+              )}
+              {!loaded && timedOut && (
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-slate-900 px-6 text-center">
+                  <p className="font-mono text-xs text-slate-500">{t('demo.timeout')}</p>
+                  <a
+                    href={DEMO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-medium text-slate-300 transition-all hover:border-cyan-400/40 hover:text-white"
+                  >
+                    {t('demo.open')}
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
                 </div>
               )}
               <iframe
