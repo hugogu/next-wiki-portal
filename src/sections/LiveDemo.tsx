@@ -7,7 +7,7 @@ import { useLang } from '@/i18n'
 // Seeded once with NEXT_WIKI_SEED=true and run with NEXT_WIKI_DEMO_READONLY=true
 // (see docs/deployment.md#public-read-only-demo in the next-wiki repo) so every
 // write action is rejected server-side regardless of what a visitor clicks.
-const DEMO_URL = 'https://demo.next-wiki.hugogu.cn'
+const DEMO_URL = 'https://next-wiki-demo.hugogu.cn'
 
 // If the iframe hasn't fired onLoad by then, stop showing an indefinite
 // spinner and point visitors at the "open in new tab" fallback instead.
