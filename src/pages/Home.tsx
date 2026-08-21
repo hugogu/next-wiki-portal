@@ -1,5 +1,6 @@
 import Navbar from '@/sections/Navbar'
 import Hero from '@/sections/Hero'
+import LiveDemo from '@/sections/LiveDemo'
 import Features from '@/sections/Features'
 import AiNative from '@/sections/AiNative'
 import TechStack from '@/sections/TechStack'
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <LiveDemo />
         <Features />
         <AiNative />
         <TechStack />

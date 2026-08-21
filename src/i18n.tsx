@@ -58,6 +58,7 @@ const en: Dict = {
   'meta.title': 'next-wiki · Personal AI-Native Knowledge Vault',
 
   // Navbar
+  'nav.demo': 'Live Demo',
   'nav.features': 'Features',
   'nav.ai': 'AI-Native',
   'nav.stack': 'Stack',
@@ -133,6 +134,15 @@ const en: Dict = {
   'ai.mode.2.desc': 'raw stores append-only source material with original bytes, generated stores AI-produced concepts with provenance, and default stays the curated public wiki — publish concepts via soft links.',
   'ai.modes.note': 'Mode switches run as a transactional migration: content is read-only while pending, path conflicts get deterministic suffixes and are reported in the admin UI.',
 
+  // Live demo
+  'demo.kicker': '// Show, don\'t tell',
+  'demo.title': 'Try it live — no signup, no install',
+  'demo.sub': 'A real running next-wiki instance, seeded with sample content, embedded right here. It is a genuine app, not a recorded walkthrough — click through pages, search, and the AI chat exactly as a self-hosted install would behave.',
+  'demo.open': 'Open in new tab',
+  'demo.readonly': 'Read-only demo',
+  'demo.loading': 'Loading live demo…',
+  'demo.timeout': 'Taking longer than expected to load.',
+
   // Tech stack
   'stack.kicker': '// Tech stack',
   'stack.title': 'Modern, restrained, all open source',
@@ -175,6 +185,7 @@ const en: Dict = {
 const zh: Dict = {
   'meta.title': 'next-wiki · 个人的 AI 原生知识资产库',
 
+  'nav.demo': '在线演示',
   'nav.features': '特性',
   'nav.ai': 'AI 原生',
   'nav.stack': '技术栈',
@@ -245,6 +256,14 @@ const zh: Dict = {
   'ai.mode.2.tag': '证据优先的记忆',
   'ai.mode.2.desc': 'raw 存放带原始字节的只追加素材，generated 存放带来源的 AI 生成概念，default 保持为策展后的公开 wiki —— 概念可通过软链接发布。',
   'ai.modes.note': '模式切换由事务化迁移完成：切换期间内容只读，路径冲突自动添加确定性后缀并在管理台报告。',
+
+  'demo.kicker': '// 眼见为实',
+  'demo.title': '在线试用 —— 无需注册、无需安装',
+  'demo.sub': '这是一个真实运行、预置了示例内容的 next-wiki 实例，直接嵌入在本页中 —— 是真实应用，不是录制的演示视频。可以像自托管实例一样浏览页面、搜索、体验 AI 对话。',
+  'demo.open': '在新标签页打开',
+  'demo.readonly': '只读演示',
+  'demo.loading': '正在加载在线演示…',
+  'demo.timeout': '加载时间比预期长。',
 
   'stack.kicker': '// 技术栈',
   'stack.title': '现代、克制、全部开源',
