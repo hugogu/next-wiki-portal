@@ -88,7 +88,7 @@ export default function AiNative() {
             {/* MCP */}
             <div className="flex flex-col items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-50/60 px-5 py-8 text-center">
               <Bot className="h-7 w-7 text-cyan-600" strokeWidth={1.6} />
-              <p className="mt-3 font-semibold text-slate-900">MCP Server</p>
+              <p className="mt-3 font-semibold text-slate-900">MCP + Agents</p>
               <p className="mt-1 text-xs text-slate-500">{t('ai.mcp.sub')}</p>
             </div>
           </div>

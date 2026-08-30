@@ -1,31 +1,16 @@
-Using Node.js 20, Tailwind CSS v3.4.19, and Vite v7.2.4
+# Portal notes
 
-Tailwind CSS has been set up with the shadcn theme
+This repository contains the bilingual public site for next-wiki.
 
-Setup complete: /mnt/agents/output/app
+## Product positioning
 
-Components (40+):
-  accordion, alert-dialog, alert, aspect-ratio, avatar, badge, breadcrumb,
-  button-group, button, calendar, card, carousel, chart, checkbox, collapsible,
-  command, context-menu, dialog, drawer, dropdown-menu, empty, field, form,
-  hover-card, input-group, input-otp, input, item, kbd, label, menubar,
-  navigation-menu, pagination, popover, progress, radio-group, resizable,
-  scroll-area, select, separator, sheet, sidebar, skeleton, slider, sonner,
-  spinner, switch, table, tabs, textarea, toggle-group, toggle, tooltip
+next-wiki is presented as a self-hosted, private-by-default Agent Context & Memory Hub for one owner and multiple explicit Agent identities. The portal should explain the broader context model — rules, non-secret configuration, procedures, conversations, evidence, memory, and curated knowledge — while clearly separating current foundations from future Agent-specific capabilities.
 
-Usage:
-  import { Button } from '@/components/ui/button'
-  import { Card, CardHeader, CardTitle } from '@/components/ui/card'
+## Content locations
 
-Structure:
-  src/sections/        Page sections
-  src/hooks/           Custom hooks
-  src/types/           Type definitions
-  src/App.css          Styles specific to the Webapp
-  src/App.tsx          Root React component
-  src/index.css        Global styles
-  src/main.tsx         Entry point for rendering the Webapp
-  index.html           Entry point for the Webapp
-  tailwind.config.js   Configures Tailwind's theme, plugins, etc.
-  vite.config.ts       Main build and dev server settings for Vite
-  postcss.config.js    Config file for CSS post-processing tools
+- `src/i18n.tsx` — homepage copy and language translations
+- `src/sections/` — homepage sections
+- `src/docs/pages/en/` — English documentation
+- `src/docs/pages/zh/` — Chinese documentation
+- `src/docs/tree.ts` — documentation navigation
+- `index.html` — SEO metadata and structured data

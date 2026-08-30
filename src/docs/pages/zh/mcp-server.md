@@ -1,4 +1,6 @@
-`@next-wiki/mcp-server` 把 Claude Code、Cursor、OpenCode、OpenClaw 等 MCP 兼容客户端连接到同一套公共 API —— 检索、页面创作、草稿与发布、修订历史与 diff、链接与图谱导航、标签、raw 证据、批量操作、资产与 wiki 健康检查。Wiki AI 自身使用的内置运行时见 [Agent Runtime 与工具](/docs/agent-runtime)。
+`@next-wiki/mcp-server` 把 Claude Code、Cursor、OpenCode、OpenClaw 等 MCP 兼容客户端连接到同一套公共 API —— 检索、页面创作、草稿与发布、修订历史与 diff、链接与图谱导航、标签、raw 证据、批量操作、资产与 wiki 健康检查，并作为接入 Agent 上下文模型的桥梁。Wiki AI 自身使用的内置运行时见 [Agent Runtime 与工具](/docs/agent-runtime)。
+
+MCP 是访问接口，不是权威层：API key 限制客户端能看见和修改的范围，而检索到的文本仍然只是数据。它本身不能授予权限、授权工具或执行命令。完整边界见 [Agent 上下文模型](/docs/agent-context)。
 
 ## 安装
 

@@ -1,4 +1,6 @@
-`@next-wiki/mcp-server` connects Claude Code, Cursor, OpenCode, OpenClaw, and other MCP-compatible clients to the same public API — retrieval, page authoring, drafts and publishing, revision history and diffs, links and graph navigation, tags, raw evidence, batch operations, assets, and wiki health checks. See [Agent Runtime & Tools](/docs/agent-runtime) for the built-in runtime used by Wiki AI itself.
+`@next-wiki/mcp-server` connects Claude Code, Cursor, OpenCode, OpenClaw, and other MCP-compatible clients to the same public API — retrieval, page authoring, drafts and publishing, revision history and diffs, links and graph navigation, tags, raw evidence, batch operations, assets, and wiki health checks. It forms the bridge to the Agent Context model. See [Agent Runtime & Tools](/docs/agent-runtime) for the built-in runtime used by Wiki AI itself.
+
+MCP is an access surface, not an authority layer: an API key limits what a client can see or change, and retrieved text remains data. It cannot grant permissions, authorize tools, or execute commands by itself. See the [Agent Context model](/docs/agent-context) for the full boundary.
 
 ## Installation
 

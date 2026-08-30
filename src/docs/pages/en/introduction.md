@@ -1,34 +1,36 @@
-**next-wiki** is a self-hosted, AI-native wiki for turning conversations and sources into durable knowledge. Capture what you learn, keep the evidence, ask AI to retrieve and organize it, and publish a readable wiki when it is ready — an AI memory you can run, inspect, export, and connect to any compatible client.
+**next-wiki** is a self-hosted, private-by-default **Agent Context & Memory Hub**. It gives one owner a durable place to manage multiple explicit Agent identities, their rules and non-secret configuration, conversations, source evidence, procedures, memory, and curated knowledge. Agents can retrieve the context they are allowed to see, while the owner decides what becomes shared or public.
 
 > **Project status:** actively developed, early open-source release. Interfaces and configuration may evolve.
 
 ## Why next-wiki
 
-Most wikis are good at storing pages; most AI assistants are good at answering questions. next-wiki joins the two into a **governed knowledge loop**:
+Most wikis are good at storing pages; most AI assistants are good at answering questions. next-wiki joins the two into a **governed context loop**:
 
 ```text
 conversation / source / command output
               │
               ▼
-       raw, append-only evidence
+       scoped, append-only evidence
               │
               ▼
-    AI retrieval, synthesis, and drafts
+    Agent retrieval, synthesis, and drafts
               │
               ▼
-       human review and publication
+       owner review and publication
               │
               ▼
-       durable, searchable wiki memory
+       durable, searchable context
 ```
 
-The goal is not to hide an AI agent behind a chat box. The goal is to make knowledge useful to both people and agents while keeping ownership, evidence, permissions, revisions, and publication boundaries visible.
+The goal is to make context useful to both people and Agents while keeping ownership, evidence, permissions, revisions, and publication boundaries visible. Context retrieved by an Agent is data, not authority: it cannot grant permissions, authorize tools, or execute commands.
 
 ## Highlights
 
-- **Build the wiki by talking.** A persistent Wiki AI chat — grounded through hybrid keyword + semantic retrieval with visible citations — drafts pages, restructures the tree, translates, and curates through dialogue.
-- **A governed Agent Runtime.** A built-in MCP-compatible tool provider gives AI read/draft/organize tools over the same permission-checked services as the web UI, with risk policies, admin proposal review, tool evidence, and audit events. See [Agent Runtime & Tools](/docs/agent-runtime).
-- **A long-term AI memory.** LLM Wiki mode keeps append-only raw evidence (with original bytes) separate from AI-generated concepts and the curated public wiki. See [Writing Modes](/docs/writing-modes).
+- **One owner, many Agents.** The product model is a personal Agent fleet: each Agent can have its own working context, and shared namespaces are explicit rather than accidental.
+- **Context beyond chat.** Rules, non-secret configuration, procedures, episodic memory, source evidence, and curated knowledge are different kinds of durable context — not one undifferentiated transcript archive.
+- **Build context by talking.** Wiki AI chat — grounded through hybrid keyword + semantic retrieval with visible citations — drafts pages, restructures the tree, translates, and curates through dialogue.
+- **A governed Agent Runtime.** The built-in MCP-compatible tool provider gives AI read/draft/organize tools over the same permission-checked services as the Web UI, with risk policies, admin proposal review, tool evidence, and audit events. See [Agent Runtime & Tools](/docs/agent-runtime).
+- **Selective publication.** LLM Wiki mode keeps append-only raw evidence separate from AI-generated concepts and the curated public wiki. The project is extending this foundation toward explicit, versioned context packs.
 - **Any client, one permission model.** Web UI, REST + OpenAPI, the packaged [MCP server](/docs/mcp-server), and Feishu all resolve through the same permission model.
 - **Self-hosted and portable.** One web container plus PostgreSQL 16 + pgvector; Git one-way sync, versioned ZIP export, and Wiki.js migration built in.
 
@@ -45,5 +47,7 @@ The goal is not to hide an AI agent behind a chat box. The goal is to make knowl
 ## Next steps
 
 - [Install with Docker Compose](/docs/installation)
+- [Read the Agent Context model](/docs/agent-context)
 - [Configure AI providers](/docs/ai-configuration)
 - [Explore the Agent Runtime](/docs/agent-runtime)
+- [Pick a writing mode](/docs/writing-modes)
