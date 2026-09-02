@@ -14,9 +14,17 @@ const DEMO_URL = 'https://next-wiki-demo.hugogu.cn'
 const LOAD_TIMEOUT_MS = 8000
 
 export default function LiveDemo() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const [loaded, setLoaded] = useState(false)
   const [timedOut, setTimedOut] = useState(false)
+
+  // The portal has no theme switcher — it is always dark — so the embed
+  // always requests dark too. lang mirrors the portal's own current
+  // language so the embedded instance doesn't visually clash with its host
+  // page. The standalone "open in new tab" links deliberately omit both: in
+  // its own window the demo should behave like any other visit, honoring
+  // its own saved/default language and theme rather than the portal's.
+  const embedSrc = `${DEMO_URL}?lang=${lang}&theme=dark`
 
   useEffect(() => {
     if (loaded) return
@@ -89,7 +97,7 @@ export default function LiveDemo() {
                 </div>
               )}
               <iframe
-                src={DEMO_URL}
+                src={embedSrc}
                 title="next-wiki live demo"
                 loading="lazy"
                 onLoad={() => setLoaded(true)}
