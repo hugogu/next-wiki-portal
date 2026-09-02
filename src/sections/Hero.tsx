@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Github, Sparkles } from 'lucide-react'
 import { useLang } from '@/i18n'
 
-const badges = ['Apache-2.0', 'Next.js 16', 'React 19', 'TypeScript 5', 'Node 20+']
+const badges = ['Private by default', 'MCP-native', 'Versioned context', 'Selective sharing', 'Apache-2.0']
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },

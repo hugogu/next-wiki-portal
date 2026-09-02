@@ -45,6 +45,7 @@ export const docsTree: DocGroup[] = [
     id: 'ai',
     title: { en: 'AI Integration', zh: 'AI 集成' },
     pages: [
+      { slug: 'agent-context', title: { en: 'Agent Context', zh: 'Agent 上下文' } },
       { slug: 'writing-modes', title: { en: 'Writing Modes', zh: '写作模式' } },
       { slug: 'agent-runtime', title: { en: 'Agent Runtime & Tools', zh: 'Agent Runtime 与工具' } },
       { slug: 'mcp-server', title: { en: 'MCP Server', zh: 'MCP Server' } },
