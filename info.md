@@ -4,7 +4,7 @@ This repository contains the bilingual public site for next-wiki.
 
 ## Product positioning
 
-next-wiki is presented as a self-hosted, private-by-default Agent Context & Memory Hub for one owner and multiple explicit Agent identities. The portal should explain the broader context model — rules, non-secret configuration, procedures, conversations, evidence, memory, and curated knowledge — while clearly separating current foundations from future Agent-specific capabilities.
+next-wiki is presented as a self-hosted, AI-assisted personal knowledge base for one owner and multiple explicit Agent identities. The portal should explain how wiki knowledge, rules, non-secret configuration, procedures, conversations, evidence, memory, and curated knowledge become controlled cross-Agent context, while clearly separating current foundations from future Agent-specific capabilities.
 
 ## Content locations
 
