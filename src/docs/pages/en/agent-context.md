@@ -1,6 +1,6 @@
 # Agent Context
 
-next-wiki is evolving from a personal knowledge vault into a private-by-default context layer for a fleet of Agents. The goal is to make the owner’s context useful to Agents without turning the store into an opaque prompt dump or an uncontrolled public mirror.
+next-wiki extends an AI-assisted personal knowledge base into a private-by-default context layer for a fleet of Agents. The goal is to make the owner’s knowledge useful to Agents without turning the store into an opaque prompt dump or an uncontrolled public mirror.
 
 ## Context is more than chat
 

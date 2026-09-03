@@ -2,7 +2,13 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Github, Sparkles } from 'lucide-react'
 import { useLang } from '@/i18n'
 
-const badges = ['Private by default', 'MCP-native', 'Versioned context', 'Selective sharing', 'Apache-2.0']
+const badgeKeys = [
+  'hero.badge.1',
+  'hero.badge.2',
+  'hero.badge.3',
+  'hero.badge.4',
+  'hero.badge.5',
+]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -95,12 +101,12 @@ export default function Hero() {
             custom={4}
             className="mt-10 flex flex-wrap gap-2"
           >
-            {badges.map((b) => (
+            {badgeKeys.map((key) => (
               <span
-                key={b}
+                key={key}
                 className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[11px] text-slate-400"
               >
-                {b}
+                {t(key)}
               </span>
             ))}
           </motion.div>
